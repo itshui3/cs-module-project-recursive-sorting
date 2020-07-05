@@ -4,9 +4,10 @@ from sorting import *
 from quickSort import *
 from quickSort_lastPivot import *
 from quickSort_midPivot import *
+from quickSort_midLeftPivot import *
 
 class RecursiveSortingTests(unittest.TestCase):
-    def test_merge_sort(self):
+    def test_mergeSort(self):
         arr1 = [1, 5, 8, 4, 2, 9, 6, 0, 3, 7]
         arr2 = []
         arr3 = [2]
@@ -19,7 +20,7 @@ class RecursiveSortingTests(unittest.TestCase):
         self.assertEqual(merge_sort(arr4), [0, 1, 2, 3, 4, 5])
         self.assertEqual(merge_sort(arr5), sorted(arr5))
 
-    def test_quick_sort(self):
+    def test_quickSort(self):
         arr1 = [1, 5, 8, 4, 2, 9, 6, 0, 3, 7]
         arr2 = []
         arr3 = [2]
@@ -32,7 +33,7 @@ class RecursiveSortingTests(unittest.TestCase):
         self.assertEqual(quick_sort(arr4), [0, 1, 2, 3, 4, 5])
         self.assertEqual(quick_sort(arr5), sorted(arr5))
 
-    def test_quick_sort_last(self):
+    def test_quickSort_last(self):
         arr1 = [1, 5, 8, 4, 2, 9, 6, 0, 3, 7]
         arr2 = []
         arr3 = [2]
@@ -45,7 +46,7 @@ class RecursiveSortingTests(unittest.TestCase):
         self.assertEqual(quickSort_last(arr4), [0, 1, 2, 3, 4, 5])
         self.assertEqual(quickSort_last(arr5), sorted(arr5))
 
-    def test_quick_sort_mid(self):
+    def test_quickSort_mid(self):
         arr1 = [1, 5, 8, 4, 2, 9, 6, 0, 3, 7]
         arr2 = []
         arr3 = [2]
@@ -57,6 +58,19 @@ class RecursiveSortingTests(unittest.TestCase):
         self.assertEqual(quickSort_mid(arr3), [2])
         self.assertEqual(quickSort_mid(arr4), [0, 1, 2, 3, 4, 5])
         self.assertEqual(quickSort_mid(arr5), sorted(arr5))
+
+    def test_quickSort_midLeft(self):
+        arr1 = [1, 5, 8, 4, 2, 9, 6, 0, 3, 7]
+        arr2 = []
+        arr3 = [2]
+        arr4 = [0, 1, 2, 3, 4, 5]
+        arr5 = random.sample(range(200), 50)
+
+        self.assertEqual(quickSort_midLeft(arr1), [0, 1, 2, 3, 4, 5, 6, 7, 8, 9])
+        self.assertEqual(quickSort_midLeft(arr2), [])
+        self.assertEqual(quickSort_midLeft(arr3), [2])
+        self.assertEqual(quickSort_midLeft(arr4), [0, 1, 2, 3, 4, 5])
+        self.assertEqual(quickSort_midLeft(arr5), sorted(arr5))
 
     # Uncomment this test to test your in-place merge sort implementation
     # def test_in_place_merge_sort(self):
