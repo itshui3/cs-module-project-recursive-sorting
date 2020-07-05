@@ -20,3 +20,7 @@ def quick_sort(arr):
         greater_than = quick_sort(greater_than)
 
     return less_than + [pivot] + greater_than
+
+unsorted = [5, 1, 0, 2, 10, 7, 2, 3, 8, 12, 17, 4]
+
+print(quick_sort(unsorted))
