@@ -1,7 +1,8 @@
 # pivot always first element implementation
 def quick_sort(arr):
     # catch-case logic
-
+    if not len(arr):
+        return []
     # initialization logic
     pivot = arr[0]
 
@@ -21,6 +22,6 @@ def quick_sort(arr):
 
     return less_than + [pivot] + greater_than
 
-unsorted = [5, 1, 0, 2, 10, 7, 2, 3, 8, 12, 17, 4]
+# unsorted = [5, 1, 0, 2, 10, 7, 2, 3, 8, 12, 17, 4]
 
-print(quick_sort(unsorted))
+# print(quick_sort(unsorted))
