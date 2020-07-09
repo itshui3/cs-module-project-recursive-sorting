@@ -70,10 +70,49 @@ def agnostic_binary_search(arr, target):
     if not remainders: return -1
     return agnostic_binary_search(remainders, target)
 
+# my_nums = [5, 10, 2, 0, 3, 7, 20, 17, 16, 12]
+# search_7 = agnostic_binary_search(my_nums, 7)
+# print(search_7)
+
+
+def iter_agnostic_binary_search(arr, target):
+    if not len(arr): return -1
+
+    order = None
+    if arr[0] < arr[len(arr) - 1]: order = 1
+
+    elif arr[0] == arr[len(arr) - 1]:
+        if target != arr[0]: return -1
+        else:return 0
+
+    else: order = 0
+
+
+    l = 0
+    r = len(arr)-1
+
+    midx = r // 2
+
+    while l <= r:
+        if target == arr[midx]: return midx
+
+        if target > arr[midx] and order:
+            l = midx + 1
+
+        elif target > arr[midx] and not order:
+            r = midx - 1
+
+        elif target < arr[midx] and order:
+            r = midx - 1
+
+        elif target < arr[midx] and not order:
+            l = midx + 1
+
+        midx = ((r - l) // 2 ) + l
+
+    return -1
+
 my_nums = [5, 10, 2, 0, 3, 7, 20, 17, 16, 12]
-search_7 = agnostic_binary_search(my_nums, 7)
-print(search_7)
+index_7 = iter_agnostic_binary_search(my_nums, 7)
 
-
-def re_agnostic_binary_search(arr, target):
-    pass
+print(index_7)
